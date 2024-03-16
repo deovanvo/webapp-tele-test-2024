@@ -41,15 +41,15 @@ jobs:
       - name: Up src
         uses: actions/upload-pages-artifact@v3
         with:
-          path: src
+          path: './src'
       - name: Up cocos-js
         uses: actions/upload-pages-artifact@v3
         with:
-          path: cocos-js
+          path: './cocos-js'
       - name: Up assets
         uses: actions/upload-pages-artifact@v3
         with:
-          path: assets
+          path: './assets'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
