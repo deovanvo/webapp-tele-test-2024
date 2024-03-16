@@ -31,28 +31,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          sparse-checkout:
-            cocos-js
-            assets
-            src
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        with:
-          sparse-checkout:
-            cocos-js
-            assets
-            src
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
           path: '.'
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: src
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: cocos-js
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: assets
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          sparse-checkout:
-            cocos-js
-            assets
-            src
