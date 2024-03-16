@@ -31,8 +31,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          sparse-checkout:
+            cocos-js
+            assets
+            src
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          sparse-checkout:
+            cocos-js
+            assets
+            src
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
