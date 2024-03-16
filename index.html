@@ -20,324 +20,256 @@
         setThemeClass();
     </script>
     <style>
-        body {
-            --bg-color: var(--tg-theme-bg-color, #fff);
-            font-family: sans-serif;
-            background-color: var(--bg-color);
-            color: var(--tg-theme-text-color, #222);
-            font-size: 14px;
-            margin: 0;
-            padding: 0;
-            color-scheme: var(--tg-color-scheme);
+       :root {
+            --itchio_ui_bg: #313232;
+            --itchio_ui_bg_dark: #2b2c2c
         }
 
-        body.gray {
-            background-color: var(--tg-theme-secondary-bg-color, #efefef);
+        .wrapper {
+            --itchio_font_family: Lato;
+            --itchio_bg_color: #2c3132;
+            --itchio_bg2_color: rgba(34, 47, 52, 1);
+            --itchio_bg2_sub: #374449;
+            --itchio_text_color: #ffffff;
+            --itchio_link_color: #55c075;
+            --itchio_border_color: #43575e;
+            --itchio_button_color: #55c075;
+            --itchio_button_fg_color: #ffffff;
+            --itchio_button_shadow_color: #3ea95e;
+            background-color: #2c3132;
+            /*! */
+            /* */
         }
 
-        a {
-            color: var(--tg-theme-link-color, #2678b6);
+        .inner_column {
+            color: #ffffff;
+            font-family: Lato, Lato, LatoExtended, sans-serif;
+            background-color: rgba(34, 47, 52, 1)
         }
 
-        .btn {
-            font-size: 14px;
-            padding: 10px 17px;
+        .inner_column ::selection {
+            color: #ffffff;
+            background: #55c075
         }
 
-        .btn-primary {
-            background-color: var(--tg-theme-button-color, #50a8eb);
-            color: var(--tg-theme-button-text-color, #fff);
-            border: none;
+        .inner_column ::-moz-selection {
+            color: #ffffff;
+            background: #55c075
         }
 
-        button {
-            display: block;
-            width: 100%;
-            font-size: 14px;
-            margin: 15px 0;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            background-color: var(--tg-theme-button-color, #50a8eb);
-            color: var(--tg-theme-button-text-color, #ffffff);
-            cursor: pointer;
+        .inner_column h1,
+        .inner_column h2,
+        .inner_column h3,
+        .inner_column h4,
+        .inner_column h5,
+        .inner_column h6 {
+            font-family: inherit;
+            font-weight: 900;
+            color: inherit
         }
 
-        .main-container {
-            padding: 15px;
+        .inner_column a,
+        .inner_column .footer a {
+            color: #55c075
         }
 
-        .list-header {
-            text-transform: uppercase;
-            font-size: .92em;
-            color: var(--tg-theme-hint-color, #ccc);
-            margin: 0 0 10px;
+        .inner_column .button,
+        .inner_column .button:hover,
+        .inner_column .button:active {
+            background-color: #55c075;
+            color: #ffffff;
+            text-shadow: 0 1px 0px #3ea95e
         }
 
-        a.list-group-item,
-        button.list-group-item {
-            color: var(--tg-theme-text-color, #222);
+        .inner_column hr {
+            background-color: #43575e
         }
 
-        .main-container p {
-            margin: 0 0 10px;
+        .inner_column table {
+            border-color: #43575e
         }
 
-        .main-container pre,
-        .main-container > .btn {
-            margin: 0 0 7px;
+        .inner_column .redactor-box .redactor-toolbar li a {
+            color: #55c075
         }
 
-        .main-container pre + .hint,
-        .main-container > .btn + .hint {
-            text-align: center;
-            margin: 0 0 15px;
+        .inner_column .redactor-box .redactor-toolbar li a:hover,
+        .inner_column .redactor-box .redactor-toolbar li a:active,
+        .inner_column .redactor-box .redactor-toolbar li a.redactor-act {
+            background-color: #55c075 !important;
+            color: #ffffff !important;
+            text-shadow: 0 1px 0px #3ea95e !important
         }
 
-        button[disabled] {
-            opacity: 0.6;
-            cursor: auto;
-            pointer-events: none;
+        .inner_column .redactor-box .redactor-toolbar .re-button-tooltip {
+            text-shadow: none
         }
 
-        button.close_btn {
-            /*position: fixed;*/
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 0;
-            margin: 0;
-            padding: 16px 20px;
-            text-transform: uppercase;
+        .game_frame {
+            background: #374449;
+            /*! */
+            /* */
         }
 
-        input[type="text"],
-        .input[contenteditable] {
-            display: block;
-            box-sizing: border-box;
-            font-size: 14px;
-            width: 100%;
-            padding: 12px 20px;
-            margin: 15px 0;
-            border: 1px solid var(--tg-theme-link-color, #000);
-            background-color: var(--tg-theme-bg-color, #ffffff);
-            border-radius: 4px;
-            color: var(--tg-theme-text-color, #222222);
-            text-align: start;
+        .game_frame .embed_info {
+            background-color: rgba(34, 47, 52, 0.85)
         }
 
-        input[type="text"]::-webkit-input-placeholder {
-            color: var(--tg-theme-hint-color, #ccc);
+        .game_loading .loader_bar .loader_bar_slider {
+            background-color: #55c075
         }
 
-        input[type="text"]::-moz-placeholder {
-            color: var(--tg-theme-hint-color, #ccc);
+        .view_game_page .reward_row,
+        .view_game_page .bundle_row {
+            border-color: #374449 !important
         }
 
-        input[type="text"]:-ms-input-placeholder {
-            color: var(--tg-theme-hint-color, #ccc);
+        .view_game_page .game_info_panel_widget {
+            background: rgba(55, 68, 73, 1)
         }
 
-        .input[data-placeholder] {
-            position: relative;
+        .view_game_page .star_value .star_fill {
+            color: #55c075
         }
 
-        .input[data-placeholder]:empty:before {
-            position: absolute;
-            left: 0;
-            right: 0;
-            content: attr(data-placeholder);
-            color: var(--tg-theme-hint-color, #ccc);
-            padding: 0 20px;
-            font-weight: normal;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            pointer-events: none;
-            z-index: -1;
+        .view_game_page .rewards .quantity_input {
+            background: rgba(55, 68, 73, 1);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: #ffffff
         }
 
-        section {
-            padding: 15px;
-            text-align: center;
-            background-color: var(--bg-color, #ffffff);
+        .view_game_page .right_col {
+            display: block
         }
 
-        section#top_sect {
-            background-color: var(--tg-theme-bg-color, #ffffff);
+        .game_devlog_page li .meta_row .post_likes {
+            border-color: #374449
         }
 
-        section#top_sect.second {
-            background-color: var(--tg-theme-secondary-bg-color, #efefef);
+        .game_devlog_post_page .post_like_button {
+            box-shadow: inset 0 0 0 1px #43575e
         }
 
-        section .sect_row {
-            margin: 10px 0;
+        .game_comments_widget .community_post .post_footer a,
+        .game_comments_widget .community_post .post_footer .vote_btn,
+        .game_comments_widget .community_post .post_header .post_date a,
+        .game_comments_widget .community_post .post_header .edit_message {
+            color: rgba(255, 255, 255, 0.5)
         }
 
-        section + section {
-            padding: 0 15px 65px;
+        .game_comments_widget .community_post .reveal_full_post_btn {
+            background: linear-gradient(to bottom, transparent, #222f34 50%, #222f34);
+            color: #55c075
         }
 
-        p {
-            margin: 40px 0 15px;
+        .game_comments_widget .community_post .post_votes {
+            border-color: rgba(255, 255, 255, 0.2)
         }
 
-        ul {
-            text-align: left;
+        .game_comments_widget .community_post .post_votes .vote_btn:hover {
+            background: rgba(255, 255, 255, 0.05)
         }
 
-        li {
-            color: var(--tg-theme-hint-color, #a8a8a8);
+        .game_comments_widget .community_post .post_footer .vote_btn {
+            border-color: rgba(255, 255, 255, 0.5)
         }
 
-        textarea {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 7px;
+        .game_comments_widget .community_post .post_footer .vote_btn span {
+            color: inherit
         }
 
-        pre {
-            background: rgba(0, 0, 0, .07);
-            color: var(--tg-theme-text-color, #222);
-            font-size: 12px;
-            border: none;
-            border-radius: 4px;
-            padding: 8px;
-            margin: 7px 0;
-            word-break: break-word;
-            white-space: pre-wrap;
-            text-align: left;
+        .game_comments_widget .community_post .post_footer .vote_btn:hover,
+        .game_comments_widget .community_post .post_footer .vote_btn.voted {
+            background-color: #55c075;
+            color: #ffffff;
+            text-shadow: 0 1px 0px #3ea95e;
+            border-color: #55c075
         }
 
-        .dark pre {
-            background: rgba(255, 255, 255, .15);
+        .game_comments_widget .form .redactor-box,
+        .game_comments_widget .form .click_input,
+        .game_comments_widget .form .forms_markdown_input_widget {
+            border-color: rgba(255, 255, 255, 0.5);
+            background: transparent
         }
 
-        .chat_img {
-            width: 30px;
-            border-radius: 15px;
-            margin-right: 10px;
+        .game_comments_widget .form .redactor-layer,
+        .game_comments_widget .form .redactor-toolbar,
+        .game_comments_widget .form .click_input,
+        .game_comments_widget .form .forms_markdown_input_widget {
+            background: rgba(55, 68, 73, 1)
         }
 
-        .columns {
-            display: flex;
+        .game_comments_widget .form .forms_markdown_input_widget .markdown_toolbar button {
+            color: inherit;
+            opacity: 0.6
         }
 
-        .columns > * {
-            flex-grow: 1;
+        .game_comments_widget .form .forms_markdown_input_widget .markdown_toolbar button:hover,
+        .game_comments_widget .form .forms_markdown_input_widget .markdown_toolbar button:active {
+            opacity: 1;
+            background-color: #55c075 !important;
+            color: #ffffff !important;
+            text-shadow: 0 1px 0px #3ea95e !important
         }
 
-        .hint {
-            font-size: .8em;
-            color: var(--tg-theme-hint-color, #a8a8a8);
+        .game_comments_widget .form .forms_markdown_input_widget .markdown_toolbar,
+        .game_comments_widget .form .forms_markdown_input_widget li {
+            border-color: rgba(255, 255, 255, 0.5)
         }
 
-        .ok {
-            color: green;
+        .game_comments_widget .form textarea {
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(55, 68, 73, 1);
+            color: inherit
         }
 
-        .err {
-            color: red;
+        .game_comments_widget .form .redactor-toolbar {
+            border-color: rgba(255, 255, 255, 0.5)
         }
 
-        .status_need {
-            display: none;
+        .game_comments_widget .hint {
+            color: rgba(255, 255, 255, 0.5)
         }
 
-        #fixed_wrap {
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            transform: translateY(100vh);
+        .game_community_preview_widget .community_topic_row .topic_tag {
+            background-color: #374449
         }
 
-        .viewport-container {
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            height: var(--tg-viewport-stable-height, 100vh);
-            transition: height .2s ease;
-        }
-
-        .viewport-container .main-container {
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .viewport-container .main-container button {
-            width: auto;
-        }
-
-        .viewport-border,
-        .viewport-stable_border {
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            height: var(--tg-viewport-height, 100vh);
-            pointer-events: none;
-        }
-
-        .viewport-stable_border {
-            height: var(--tg-viewport-stable-height, 100vh);
-        }
-
-        .viewport-border:before,
-        .viewport-stable_border:before {
-            content: attr(text);
-            display: inline-block;
-            position: absolute;
-            background: gray;
-            right: 0;
-            top: 0;
-            font-size: 7px;
-            padding: 2px 4px;
-            vertical-align: top;
-        }
-
-        .viewport-stable_border:before {
-            background: green;
-            left: 0;
-            right: auto;
-        }
-
-        .viewport-border:after,
-        .viewport-stable_border:after {
-            content: '';
-            display: block;
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            border: 2px dashed gray;
-        }
-
-        .viewport-stable_border:after {
-            border-color: green;
-        }
-
-        small {
-            font-size: 12px;
+        .footer .svgicon,
+        .view_game_page .more_information_toggle .svgicon {
+            fill: #ffffff !important
         }
     </style>
+    <meta name="csrf_token" value="WyI4UmNpIiwxNzEwNTU3MDE3LCJMR21VWFJGMnBGSmFOZHMiXQ==.xS1khOHzgyKitoA59lngz6VMRW0=" />
+    <link rel="stylesheet" href="https://static.itch.io/game.css?1710546260" />
+    <script type="text/javascript">
+        window.itchio_translations_url = 'https://static.itch.io/translations';
+    </script>
+    <script type="text/javascript" src="https://static.itch.io/lib.min.js?1710546260"></script>
+    <script type="text/javascript" src="https://static.itch.io/bundle.min.js?1710546260"></script>
+    <script type="text/javascript" src="https://static.itch.io/lib/jquery.maskMoney.js"></script>
+    <script id="lib_react_src" data-src="https://static.itch.io/react.min.js?1710546260"></script>
+    <script type="text/javascript" src="https://static.itch.io/game.min.js?1710546260"></script>
 </head>
 
-<body class="" style="visibility: hidden;">
-<div>
-    <iframe allowtransparency="true" webkitallowfullscreen="true" mozallowfullscreen="true" msallowfullscreen="true" allow="autoplay; fullscreen *; geolocation; microphone; camera; midi; monetization; xr-spatial-tracking; gamepad; gyroscope; accelerometer; xr; cross-origin-isolated" id="game_drop" frameborder="0" allowfullscreen="true" scrolling="no" src="https://html-classic.itch.zone/html/9797870/index.html"></iframe>
-<!--     <iframe src="https://dev86.sam-cer.live/sam/?host=gamesv.thundersama.co&port=8443&ssl=1&protocol=https://" title="description"></iframe> -->
-</div>
+<body class="embedded_game locale_en game_layout_widget layout_widget responsive no_theme_toggle" data-host="itch.io" data-page_name="view_game">
+<div id="wrapper" class="main wrapper">
+        <div id="inner_column" class="inner_column size_large family_lato">
+            <div id="header" class="header">
+                <h1 itemprop="name" class="game_title">NIMRODS - Demo</h1>
+            </div>
+            <div id="view_html_game_9204642" class="view_html_game_page view_game_page page_widget base_widget direct_download ready">
+                <div id="html_embed_4236954" class="html_embed_widget base_widget embed_wrapper">
+                    <div data-width="960" data-height="600" class="game_frame game_pending" style="width: 960px; height: 600px">
+                        <div data-iframe="&lt;iframe webkitallowfullscreen=&quot;true&quot; mozallowfullscreen=&quot;true&quot; msallowfullscreen=&quot;true&quot; src=&quot;https://html-classic.itch.zone/html/9589774/webgl-release/index.html&quot; id=&quot;game_drop&quot; scrolling=&quot;no&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; allow=&quot;autoplay; fullscreen *; geolocation; microphone; camera; midi; monetization; xr-spatial-tracking; gamepad; gyroscope; accelerometer; xr; cross-origin-isolated&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;"
+                            class="iframe_placeholder"><button class="button load_iframe_btn"><svg stroke-linecap="round" version="1.1" stroke-linejoin="round" fill="none" aria-hidden role="img" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24" class="svgicon icon_play"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg> Run game</button></div>
+                    </div>
+                </div>
+            </div>    
+                
+            
+    </div>
 <section id="top_sect" class="second">
     <button onclick="DemoApp.expand();">Expand Webview</button>
     <button onclick="DemoApp.toggleMainButton(this);">Hide Main Button</button>
@@ -345,7 +277,11 @@
 
 
 <script type="application/javascript">
-
+    new I.HtmlEmbed('#html_embed_4236954', {
+                "width": 960,
+                "height": 600,
+                "start_maximized": false
+            });
     /*
      * This is a demo code for Telegram WebApp for Bots
      * It contains basic examples of how to use the API
